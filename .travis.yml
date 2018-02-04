@@ -11,6 +11,7 @@ before_install:
   - export SPACK_ROOT=/tmp/spack
   - source $SPACK_ROOT/share/spack/setup-env.sh
   - spack bootstrap
+  - source $SPACK_ROOT/share/spack/setup-env.sh
   - spack install curl
   - spack load curl
   - git clone https://github.com/f-sim/spack-packages.git /tmp/spack-packages
