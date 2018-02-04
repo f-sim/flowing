@@ -18,7 +18,8 @@ before_install:
   - export SPACK_ROOT=$HOME/spack
   - source $SPACK_ROOT/share/spack/setup-env.sh
 #  - git clone https://github.com/f-sim/spack-packages.git $HOME/spack-packages
-  - spack repo add $HOME/spack-packages
+#  - spack repo add $HOME/spack-packages
+  - spack install googletest +gmock
   - pip install --user cpp-coveralls
 
 script:
