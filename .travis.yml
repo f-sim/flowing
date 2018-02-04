@@ -14,13 +14,16 @@ before_install:
   - sudo apt-get install -y build-essential gfortran environment-modules
   - sudo apt-get install -y --reinstall ca-certificates
   - sudo update-ca-certificates -f
-#  - git clone https://github.com/spack/spack.git $HOME/spack
+  - cd $HOME/spack
+  - git pull
   - export SPACK_ROOT=$HOME/spack
   - source $SPACK_ROOT/share/spack/setup-env.sh
-#  - git clone https://github.com/f-sim/spack-packages.git $HOME/spack-packages
-#  - spack repo add $HOME/spack-packages
+  - cd $HOME/spack-packages
+  - git pull
+  - spack repo add $HOME/spack-packages
   - spack install googletest +gmock
   - pip install --user cpp-coveralls
+  - cd $TRAVIS_BUILD_DIR
 
 script:
   - mkdir build
