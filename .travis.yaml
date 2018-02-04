@@ -1,0 +1,4 @@
+before_script:
+  - git clone https://github.com/spack/spack.git /tmp/spack
+  - export SPACK_ROOT=/tmp/spack
+  - source $SPACK_ROOT/share/spack/setup-env.sh
