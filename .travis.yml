@@ -8,18 +8,26 @@ cache:
   directories:
     $HOME/spack
     $HOME/spack-packages
+    $HOME/.spack
 
 before_install:
   - sudo apt-get install -y build-essential gfortran environment-modules
   - sudo apt-get install -y --reinstall ca-certificates
   - sudo update-ca-certificates -f
-  - git clone https://github.com/spack/spack.git $HOME/spack
+#  - git clone https://github.com/spack/spack.git $HOME/spack
   - export SPACK_ROOT=$HOME/spack
   - source $SPACK_ROOT/share/spack/setup-env.sh
-  - git clone https://github.com/f-sim/spack-packages.git $HOME/spack-packages
-  - spack repo add $HOME/spack-packages
+#  - git clone https://github.com/f-sim/spack-packages.git $HOME/spack-packages
+#  - spack repo add $HOME/spack-packages
+  - pip install --user cpp-coveralls
 
 script:
   - mkdir build
   - cd build
   - spack setup flowing@master
+  - ./spconfig.py ..
+  - make
+  - ./foo
+
+after_success:
+  - coveralls --gcov-options '\-lp'

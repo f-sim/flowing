@@ -9,4 +9,6 @@ find_package(GTest REQUIRED)
 add_executable(foo foo.cpp foo.cpp)
 target_link_libraries(foo GTest::GTest GTest::Main)
 
+target_compile_options(foo PRIVATE -fprofile-arcs -ftest-coverage)
+
 add_test(AllTestsInFoo foo)
