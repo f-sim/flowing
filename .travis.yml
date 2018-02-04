@@ -16,6 +16,8 @@ before_install:
   - spack load curl
   - git clone https://github.com/f-sim/spack-packages.git /tmp/spack-packages
   - spack repo add /tmp/spack-packages
+  - sudo apt-get install -y --reinstall ca-certificates
+  - update-ca-certificates -f
 
 script:
   - mkdir build
