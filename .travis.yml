@@ -20,7 +20,7 @@ before_install:
   - source $SPACK_ROOT/share/spack/setup-env.sh
   - cd $HOME/spack-packages
   - git pull
-  - spack repo add $HOME/spack-packages
+#  - spack repo add $HOME/spack-packages
   - spack install googletest +gmock
   - pip install --user cpp-coveralls
   - cd $TRAVIS_BUILD_DIR
