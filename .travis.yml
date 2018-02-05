@@ -28,10 +28,10 @@ before_install:
 script:
   - mkdir build
   - cd build
-  - spack setup flowing@master
+  - spack setup flowing@master build_type=Debug
   - ./spconfig.py ..
   - make
   - ./foo
 
 after_success:
-  - coveralls --gcov-options '\-lp'
+  - coveralls --gcov-options '\-lps ./CMakeFiles/foo.dir'
