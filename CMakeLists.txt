@@ -7,7 +7,7 @@ enable_testing()
 find_package(GTest REQUIRED)
 
 add_executable(foo foo.cpp foo.cpp)
-target_link_libraries(foo GTest::GTest GTest::Main)
+target_link_libraries(foo GTest::GTest GTest::Main -lgcov)
 
 target_compile_options(foo PRIVATE -fprofile-arcs -ftest-coverage)
 
